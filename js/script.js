@@ -10,8 +10,12 @@ const searchData = async (searchText) => {
   //obtien les match sur la recherche
   let matches = data.filter((data) => {
     const regex = new RegExp(`^${searchText}`, "gi");
-    return data.name.match(regex) || data.abbr.match(regex);
+    return data.name.french.match(regex);
   });
+
+  if (searchText.length === 0) {
+    matches = [];
+  }
   console.log(matches);
 };
 
