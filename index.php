@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head> 
+    <?php
+    session_start();
+    $_SESSION['page'] = "accueil";
+    ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +19,10 @@
                     Liste des Pokemon
                 </h3>
                 <div class="form-group">
-                    <input type="text" id="search" 
+                    <input type="text" name="search" 
                     class="form-control form-control-lg"
                     placeholder='Select a pokemon'>
+                    <input type="submit" id="search" value="go"> 
                 </div>
                 <div id="match-list"></div>
             </div>
