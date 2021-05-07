@@ -15,8 +15,27 @@ const searchData = async (searchText) => {
 
   if (searchText.length === 0) {
     matches = [];
+    matchList.innerHTML = '';
   }
+
+  outputHtml(matches);
   console.log(matches);
+};
+//Afficher les resultats 
+const outputHtml = (matches) => {
+  if (matches.length > 0) {
+    const html = matches.map(
+      (match) => `
+      <div class="card-body">
+      <h4>${match.name.french} <span class="text-primary">${match.type}</span> </h4>
+      </div>
+      `
+    ).join('');
+
+    console.log(html);
+
+    matchList.innerHTML = html;
+  }
 };
 
 search.addEventListener("input", () => searchData(search.value));
