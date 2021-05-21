@@ -4,7 +4,7 @@
         $response = "<ul><li>Aucune correspondance</li></ul>"; 
         
         $connexion = new \PDO('mysql:host=localhost; dbname=autocompletion; charset=utf8', 'root', ''); 
-        $sql = $connexion->query("SELECT * FROM countries WHERE nom LIKE '$q%'"); 
+        $sql = $connexion->query("SELECT * FROM countries WHERE name LIKE '$q%'"); 
         var_dump($q);    
 
         if ($sql->rowCount() >0) {
