@@ -1,23 +1,37 @@
+$(document).ready(function(){
+    $("#searchBox").keyup(function(){
+        var query = $("#searchBox").val();
+        console.log(query);
+
+        if(query.length > 1){
+            console.log(query);
+            $.ajax(
+                {
+                    url:'index.php',
+                    method:'POST',
+                    data: {
+                        search: 1,
+                        q: query
+                    },
+                    succes: function(data){
+                        console.log(data);
+                    },
+                    datatype:'text'
+                }
+            )
+        }
+    });
+    $(document).on('click', 'li', function () {
+        var countries = $(this).text(); 
+        $("#Searchbox").val(countries);
+        $("#response").html("");
+    })
+}); 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Script hors sujet sans Ajax
+// Script hors sujet sans Ajax
 
 // const search = document.getElementById("search");
 // const matchList = document.getElementById("match-list");
@@ -48,7 +62,7 @@
 //     const html = matches.map(
 //       (match) => `
 //       <div class="card-body">
-//       <h4>${match.name.french} <span class="text-primary">${match.type}</span> </h4>
+//       <h4>${match.name} <span class="text-primary">${match.type}</span> </h4>
 //       </div>
 //       `
 //     ).join('');
@@ -60,3 +74,5 @@
 // };
 
 // search.addEventListener("input", () => searchData(search.value));
+
+

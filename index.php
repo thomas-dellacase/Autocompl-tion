@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head> 
-    <?php
+<html lang="en">
+<head>
+<?php 
     session_start();
-    $_SESSION['page'] = "accueil";
+    $_SESSION['page'] = "accueil"
     ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Auto complétion</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <title>Autocompletion</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 m-auto">
-                <h3 class="text_center mb-3">
-                    Liste des Pokemon
-                </h3>
-                <div class="form-group">
-                    <input type="text" name="search" 
-                    class="form-control form-control-lg"
-                    placeholder='Select a pokemon'>
-                    <input type="submit" id="search" value="go"> 
-                </div>
-                <div id="match-list"></div>
-            </div>
-        </div>
-    </div>
-    <script src="js/script.js"></script>
+    <h2>Nom du pays:</h2>
+    <form action="recherche.php" method="GET">
+    
+    <input type="text" name="search" class="contryName" placeholder="Entrez le nom d'un pays" id="Searchbox">
+
+    <input type="submit" id="search" value="go">   
+    </form>
+
+    <div id="response"></div>
+    <script src='script.js' type="text/javascript">
+    </script>
+
 </body>
 </html>
