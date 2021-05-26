@@ -7,8 +7,8 @@ if (isset($_GET)) {
     $connexion = new \PDO('mysql:host=localhost; dbname=autocompletion; charset=utf8', 'root', ''); 
     $query = $connexion->prepare("SELECT * FROM countries WHERE id = '$_GET[id]'");
     $query->execute(); 
-    var_dump($query); 
-    var_dump($_GET); 
+    // var_dump($query); 
+    // var_dump($_GET); 
     
     $getCountry = $query->fetch(PDO::FETCH_ASSOC);
 
